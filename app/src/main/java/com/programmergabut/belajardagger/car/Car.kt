@@ -2,7 +2,7 @@ package com.programmergabut.belajardagger.car
 
 import javax.inject.Inject
 
-class Car @Inject constructor(private val engine: Engine, private val wheels: Wheels) {
+class Car @Inject constructor(private val driver: Driver, private val engine: Engine, private val wheels: Wheels) {
 
 
     @Inject
@@ -12,7 +12,7 @@ class Car @Inject constructor(private val engine: Engine, private val wheels: Wh
 
     fun drive(){
         engine.start()
-        println("Driving...")
+        println("$driver drive $this")
     }
 
 }
