@@ -3,7 +3,6 @@ package com.programmergabut.belajardagger
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.programmergabut.belajardagger.car.Car
-import com.programmergabut.belajardagger.dagger.DaggerActivityComponent
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
@@ -15,12 +14,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val appComponent = (application as ExampleApp).getAppComponent()
+        //val appComponent = (application as ExampleApp).getAppComponent()
 
-        val activityComponent = DaggerActivityComponent.builder()
+        val activityComponent = (application as ExampleApp).getAppComponent()
+            .getActivityComponentBuilder()
             .engineCapacity(120)
             .horsePower(100)
-            .appComponent(appComponent)
             .build()
 
         activityComponent.inject(this)

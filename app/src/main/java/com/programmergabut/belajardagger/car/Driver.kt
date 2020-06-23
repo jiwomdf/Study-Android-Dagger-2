@@ -6,6 +6,4 @@ import javax.inject.Singleton
 @Singleton
 class Driver @Inject constructor() {
 
-
-
 }
