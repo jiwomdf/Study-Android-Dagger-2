@@ -1,25 +1,20 @@
 package com.programmergabut.belajardagger
 
 import android.app.Application
-import com.programmergabut.belajardagger.dagger.ActivityComponent
-import com.programmergabut.belajardagger.dagger.DaggerActivityComponent
+import com.programmergabut.belajardagger.dagger.AppComponent
+import com.programmergabut.belajardagger.dagger.DaggerAppComponent
 
 
 class ExampleApp : Application() {
 
-    lateinit var component: ActivityComponent
+    private lateinit var component: AppComponent
 
     override fun onCreate() {
         super.onCreate()
 
-        component = DaggerActivityComponent.builder()
-            .horsePower(120)
-            .engineCapacity(4000)
-            .build()
+        component = DaggerAppComponent.create()
     }
 
-    fun getAppComponent(): ActivityComponent{
-        return component
-    }
+    fun getAppComponent(): AppComponent = component
 
 }
